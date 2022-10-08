@@ -155,11 +155,12 @@ runawayButton.setWarningView(null,findViewById(R.id.parentView));
 runawayButton.setText("Button"); 
 ```
 - Set OnClickListener on RunawayButton
+
 onClickListener will only be triggered if the `RunawayButton` is enabled and it **did not run away**.
 ```
 runawayButton.setOnClickListener(v -> Toast.makeText(getApplicationContext(),"Runaway Button Clicked",Toast.LENGTH_LONG).show());
-
 ```
+
 ...and any other AppCompatButton property can be customised.
 
 ## Contribute
