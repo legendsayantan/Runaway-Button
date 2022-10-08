@@ -88,16 +88,20 @@ runawayButton.setEnabled(false);
 ```
 
 #### Customise the Button-
-```
-//set duration of runaway animation in ms
-runawayButton.setAnimationTime(150); 
 
-//which direction(s) to run away
-//Possible values: MOVE_ALL_DIRECTION , MOVE_HORIZONTAL , MOVE_VERTICAL , MOVE_LEFT , MOVE_RIGHT , MOVE_UP , MOVE_DOWN
+- set duration of runaway animation in ms
+```
+runawayButton.setAnimationTime(150); 
+```
+- Which direction(s) to run away
+
+Possible values: `MOVE_ALL_DIRECTION` , `MOVE_HORIZONTAL` , `MOVE_VERTICAL` , `MOVE_LEFT` , `MOVE_RIGHT` , `MOVE_UP` , `MOVE_DOWN`
+```
 runawayButton.setAnimationDirection(RunawayButton.MOVE_ALL_DIRECTION); 
 //Note: It is recommended to keep some empty space in the direction of animation, So the button can move around freely.
-
-//register Animation Adapter for callbacks
+```
+- Register Animation Adapter for callbacks
+```
 runawayButton.setAnimationListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationCancel(Animator animation) {
@@ -129,18 +133,22 @@ runawayButton.setAnimationListener(new AnimatorListenerAdapter() {
                 super.onAnimationResume(animation);
             }
         });
-
-//reveal a warning text (or image) everytime the button runs away:
+```
+- Reveal a warning text (or image) everytime the button runs away:
+```
 TextView warning = new TextView(getApplicationContext());
 warning.setText("this is a warning");
-runawayButton.setWarningView(warning,findViewById(R.id.parentView)); //parentView should be the parent view (or viewgroup) of the RunawayButton.
-
-//remove the warning View:
-runawayButton.setWarningView(null,findViewById(R.id.parentView));
-        
-//Text displayed on RunawayButton
-runawayButton.setText("Button"); 
-
-//...and any other AppCompatButton properties
+runawayButton.setWarningView(warning,findViewById(R.id.parentView)); 
+//parentView should be the parent view (or viewgroup) of the RunawayButton.
 ```
+- Remove the warning View:
+```
+runawayButton.setWarningView(null,findViewById(R.id.parentView));
+```
+- Text displayed on RunawayButton
+```
+runawayButton.setText("Button"); 
+```
+- ...and any other AppCompatButton properties
+
 
