@@ -1,6 +1,9 @@
 # Runaway-Button
 an Android button that... can Run Away!
 
+![image](https://img.shields.io/github/v/release/legendsayantan/runaway-button?style=plastic)
+![image](https://img.shields.io/jitpack/version/com.github.legendsayantan/Runaway-Button?style=plastic)
+
 #### Runaway-Button moves away when the user should not click the button... so disable the button to see its Runaway Animations in Action. It behaves as a normal button when in enabled state.
 
 [Demo Apk](https://github.com/legendsayantan/Runaway-Button/raw/master/app/release/app-release.apk)
