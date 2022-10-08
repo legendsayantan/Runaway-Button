@@ -1,20 +1,15 @@
 package com.legendsayantan.runawaybutton;
 
-import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
-import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatButton;
 
 import java.util.Random;
 
@@ -120,7 +115,7 @@ public class RunawayButton extends androidx.appcompat.widget.AppCompatButton {
                     break;
                 case 2:
                     _animateHorizontally(x, width);
-                    _animateVertically(y, height);
+                    _animateVerticallyNoCallBack(y, height);
                     break;
             }
         }else if(animationDirection == MOVE_HORIZONTAL){
@@ -157,6 +152,13 @@ public class RunawayButton extends androidx.appcompat.widget.AppCompatButton {
             _animateToBottom(y,offset);
         }
     }
+    private void _animateVerticallyNoCallBack(float y, float offset){
+        if(new Random().nextInt(2)==0){
+            _animateToTopNoCallback(y,offset);
+        } else{
+            _animateToBottomNoCallback(y,offset);
+        }
+    }
     private void _animateToTop(float y, float offset){
         if(y<initialY){
             _animateToBottom(y,offset);
@@ -170,6 +172,20 @@ public class RunawayButton extends androidx.appcompat.widget.AppCompatButton {
             return;
         }
         super.animate().y(y+offset).setDuration(animationTime).setListener(animationListener);
+    }
+    private void _animateToTopNoCallback(float y, float offset){
+        if(y<initialY){
+            _animateToBottomNoCallback(y,offset);
+            return;
+        }
+        super.animate().y(y-offset).setDuration(animationTime);
+    }
+    private void _animateToBottomNoCallback(float y, float offset){
+        if(y>initialY){
+            _animateToTopNoCallback(y,offset);
+            return;
+        }
+        super.animate().y(y+offset).setDuration(animationTime);
     }
     private void _animateToLeft(float x, float offset){
         if(x<initialX){

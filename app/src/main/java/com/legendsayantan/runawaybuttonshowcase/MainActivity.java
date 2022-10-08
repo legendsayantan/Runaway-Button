@@ -3,6 +3,8 @@ package com.legendsayantan.runawaybuttonshowcase;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.ColorUtils;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.legendsayantan.runawaybutton.RunawayButton;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,21 +33,15 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.editTextTextPersonName);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
             public void afterTextChanged(Editable s) {
-                runawayButton.setEnabled(s.toString().length()>=10);
+                runawayButton.setEnabled(s.toString().length()==10);
             }
         });
-        runawayButton.setEnabled(editText.getText().toString().length()>=10);
+        runawayButton.setEnabled(editText.getText().toString().length()==10);
         findViewById(R.id.button2).setOnClickListener(v -> {
             runawayButton.setAnimationDirection(RunawayButton.MOVE_UP);
         });

@@ -2,7 +2,12 @@
 an Android button that... can Run Away!
 
 #### Runaway-Button moves away when the user should not click the button... so disable the button to see its Runaway Animations in Action. It behaves as a normal button when in enabled state.
-Feel free to clone this repo in Android Studio and build demo apk , or you can also download demo apk from releases.
+
+[Demo Apk](https://github.com/legendsayantan/Runaway-Button/raw/master/app/release/app-release.apk)
+[Demo Usage](https://github.com/legendsayantan/Runaway-Button/blob/master/app/src/main/java/com/legendsayantan/runawaybuttonshowcase/MainActivity.java)
+
+Or, feel free to clone this repo in Android Studio and build the demo apk yourself.
+
 ## Add to your project
 
 #### Step 1. Add the JitPack repository to your build file
@@ -139,7 +144,7 @@ runawayButton.setAnimationListener(new AnimatorListenerAdapter() {
 TextView warning = new TextView(getApplicationContext());
 warning.setText("this is a warning");
 runawayButton.setWarningView(warning,findViewById(R.id.parentView)); 
-//parentView should be the parent view (or viewgroup) of the RunawayButton.
+//parentView should be the parent viewgroup (or layout) of the RunawayButton.
 ```
 - Remove the warning View:
 ```
@@ -149,7 +154,13 @@ runawayButton.setWarningView(null,findViewById(R.id.parentView));
 ```
 runawayButton.setText("Button"); 
 ```
-- ...and any other AppCompatButton properties
+- Set OnClickListener on RunawayButton
+onClickListener will only be triggered if the `RunawayButton` is enabled and it **did not run away**.
+```
+runawayButton.setOnClickListener(v -> Toast.makeText(getApplicationContext(),"Runaway Button Clicked",Toast.LENGTH_LONG).show());
+
+```
+...and any other AppCompatButton property can be customised.
 
 ## Contribute
 Any improvements are welcome. Contribute by creating an Issue or Pull Request.
